@@ -14,9 +14,6 @@ const Header = () => {
                 ></Image>  
             </div>
             <nav className="space-x-2">
-                <Link href="/assignments">
-                    <span className="text-blue-500 text-lg hover:underline">Week 2 Assignment</span>
-                </Link>
                 <Link href="/">
                     <span className="text-blue-500 text-lg hover:underline">Home</span>
                 </Link>
