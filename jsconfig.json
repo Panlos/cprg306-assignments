@@ -2,6 +2,7 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"]
+      //Was originally ./* not ../*
     }
   }
 }
