@@ -1,17 +1,21 @@
 import Image from "next/image";
-import Header from "@/components/header";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-sky-200 w-full">
-      <Header/>
-      <div className="text-black bg-rose-500 flex justify-center py-2" >CPRG 306 Section D</div>
-      <div>
-      <Link href="/week-2">
-      <span className="text-blue-500 text-lg hover:underline">Week 2 Assignment</span>
-      </Link>
+    <main className="min-h-screen bg-amber-700 w-full">
+      <div className="text-black border-black border justify-center py-2 text-lg flex font-mono">
+        CPRG 306 Section D
       </div>
+      <div className="flex-col  p-4 divide-y-4 bg-blue-950">
+      <Link href="/week-2" className="">
+      <div className="text-blue-500 text-lg hover:underline font-mono shadow-md">Week 2 Assignment</div>
+      </Link>
+      <Link href="/week-3" className="">
+      <div className="text-blue-500 text-lg hover:underline font-mono shadow-md">Week 3 Assignment</div>
+      </Link>
+      </div>  
+        
     </main>
   );
 }
