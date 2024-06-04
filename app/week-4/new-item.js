@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react"
 
- function newItemForm()
+ function NewItemForm()
 {
     const [name, setName] = useState(" ");
     const [quantity , setQuantity] = useState(1);
@@ -65,4 +65,4 @@ import { useState } from "react"
         </div>
     );
 }
-export default newItemForm;
+export default NewItemForm;
