@@ -1,3 +1,4 @@
+"use client"
 import ItemList from "./item-list";
 import React from "react";
 
