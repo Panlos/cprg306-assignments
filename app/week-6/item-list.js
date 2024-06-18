@@ -14,7 +14,7 @@ const ItemList = ({ items }) => {
   });
 
   return (
-    <div className="p-6 bg-red-500">
+    <div className="p-6">
       <div className="mb-4">
         <button
           onClick={() => setSortBy("name")}
