@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import Item from "./item";
 
-const ItemList = ({items}) => {
-  const test = items;
-  console.log(test, "This is the first one");
-
+const ItemList = ({ items }) => {
   const [sortBy, setSortBy] = useState("name");
 
-
-  const sortedItems = [{...items}].sort((a, b) => {
-    console.log(items, "this is the second one");
+  const sortedItems = [...items].sort((a, b) => {
     if (sortBy === "name") {
       return a.name.localeCompare(b.name);
     } else if (sortBy === "category") {
@@ -19,7 +14,7 @@ const ItemList = ({items}) => {
   });
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-red-500">
       <div className="mb-4">
         <button
           onClick={() => setSortBy("name")}
@@ -35,8 +30,14 @@ const ItemList = ({items}) => {
         </button>
       </div>
       <ul>
-        {items.map((item) => (
-          <Item key={item.id} {...item}/>
+        {sortedItems.map((item) => (
+          <Item 
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            quantity={item.quantity}
+            category={item.category}
+          />
         ))}
       </ul>
     </div>

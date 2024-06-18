@@ -32,7 +32,7 @@ const ItemList = () => {
         </button>
       </div>
       <ul>
-        {sortedItems.map((item) => (
+        {itemsTest.map((item) => (
           <Item 
             key={item.id}
             id={item.id}
