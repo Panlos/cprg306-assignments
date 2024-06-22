@@ -1,16 +1,38 @@
-"use client"
-import { Edu_SA_Beginner, Island_Moments } from "next/font/google";
+"use client";
 import { useState, useEffect } from "react";
 
-const mealIdeas =()=>{
-    const [meals, setMeals] = useState([]);
+const MealIdeas = ({ ingredient }) => {
+  const [meals, setMeals] = useState([]);
 
-useEffect(() => {
-    console.log('Some stuff');
-})
+  useEffect(() => {
+    const loadMealIdeas = async () => {
+      const mealIdeas = await fetchMealIdeas(ingredient);
+      setMeals(mealIdeas);
+    };
+    if (ingredient) {
+      loadMealIdeas();
+    }
+  }, [ingredient]);
+
+  return (
+    <div className="meal-ideas">
+      <h2>Meal Ideas</h2>
+      <ul>
+        {meals.map((meal) => (
+          <li key={meal.idMeal}>
+            <p>{meal.strMeal}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+async function fetchMealIdeas(ingredient) {
+  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+  const data = await response.json();
+  return data.meals || []; // Ensure data.meals is always an array
 }
-async function fetchMealIdeas(ingredient){
-    const response = await fetch("the fetch link here");
-    const data = response.json();
-    return data.message;
-}
+
+export default MealIdeas;
+
