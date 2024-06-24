@@ -12,6 +12,9 @@ const ItemList = ({ items, onItemSelect }) => {
     }
     return 0;
   });
+   function removeEmojis(text) {
+    return text.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, '');
+  }
 
   return (
     <div className="p-6">
@@ -37,7 +40,7 @@ const ItemList = ({ items, onItemSelect }) => {
             name={item.name}
             quantity={item.quantity}
             category={item.category}
-            onSelect={() => onItemSelect(item.name)} // Pass the onSelect function
+            onSelect={() => onItemSelect(removeEmojis(item.name))}
           />
         ))}
       </ul>
