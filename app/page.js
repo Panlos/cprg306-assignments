@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -26,8 +25,11 @@ export default function Home() {
       <Link href="/week-7" className="">
       <div className="text-blue-500 text-lg hover:underline font-mono shadow-md">Week 7 Assignment</div>
       </Link>
+      <Link href="/week-8" className="">
+      <div className="text-blue-500 text-lg hover:underline font-mono shadow-md">Week 8 Assignment</div>
+      </Link>
       </div>  
-        
+      
     </main>
   );
 }
