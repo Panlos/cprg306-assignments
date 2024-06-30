@@ -1,14 +1,29 @@
 
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NewItemForm from "./new-item";
 import ItemList from "./item-list";
 import MealIdeas from "./meal-ideas";
 import itemsData from "./items.json";
+import { useUserAuth } from "../_utils/auth-context";
+
 
 export default function Page() {
+
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState(null);
+ const {user} = useUserAuth();
+
+ if (!user){
+  return(
+    <div className="bg-teal-500 w-full min-h-screen flex flex-col justify-center items-center p-2">
+      You are not allowed to see the Shopping list please sign in
+      <div className="p-4">
+      <a className="text-lg hover:underline mr-2 px-4 py-2 rounded  bg-teal-700" href="./">Go back</a>
+      </div>
+    </div>
+  );
+ }
 
   const handleAddItem = (newItem) => {
     setItems([...items, newItem]);
