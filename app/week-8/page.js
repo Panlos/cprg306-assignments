@@ -16,9 +16,6 @@ export default function Page(){
 
             <a className="text-lg hover:underline" href="/week-8/shopping-list">{user ? "Continue to Shopping list" : ""}</a>
             
-            
-            
-
             <p className="p-4">
                 {user ? (<button className="mr-2 px-4 py-2 rounded  bg-teal-700 text-white" onClick={firebaseSignOut}>Sign Out</button>) 
                 : (<button className="mr-2 px-4 py-2 rounded  bg-teal-700 hover:bg-teal-800 text-white" onClick={gitHubSignIn}>Sign in with your gitHub</button>
